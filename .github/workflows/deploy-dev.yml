@@ -5,8 +5,8 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  push:
-    branches: [main]
+  # push:
+  #   branches: [main]
   workflow_dispatch:
     inputs:
       TERRAFORM_COMMAND:
