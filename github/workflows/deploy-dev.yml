@@ -4,6 +4,9 @@ concurrency:
   group: ci-cd-${{ github.workflow }}-Development
   cancel-in-progress: true
 
+environment: 
+  name: Development
+
 on:
   push:
     branches: [main]

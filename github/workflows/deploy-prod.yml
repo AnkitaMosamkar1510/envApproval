@@ -4,6 +4,9 @@ concurrency:
   group: ci-cd-${{ github.workflow }}-Production
   cancel-in-progress: true
 
+environment: 
+  name: Production
+
 on:
   push:
     branches: [main]

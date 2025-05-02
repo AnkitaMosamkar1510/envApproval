@@ -4,6 +4,9 @@ concurrency:
   group: ci-cd-${{ github.workflow }}-Stage
   cancel-in-progress: true
 
+environment: 
+  name: Stage
+
 on:
   push:
     branches: [main]
