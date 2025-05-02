@@ -1,0 +1,17 @@
+name: Deploy Core
+
+on:
+  workflow_call:
+    inputs:
+      ENVIRONMENT:
+        required: true
+        type: string
+        default: "dev"
+
+jobs:
+  scheduler-service:
+    runs-on: [self-hosted, Standard]
+    steps:
+      - name: Print STUB
+        run: |
+          echo "THIS IS STUB:${{ inputs.ENVIRONMENT }}"

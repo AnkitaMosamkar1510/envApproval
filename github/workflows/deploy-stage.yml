@@ -1,0 +1,27 @@
+name: Deploy to Stage
+
+concurrency:
+  group: ci-cd-${{ github.workflow }}-Stage
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      TERRAFORM_COMMAND:
+        description: 'Should terraform resources be created or destroyed? 1. IF YOU SET THIS TO DESTROY, ALL TERRAFORM RESOURCES WILL BE DESTROYED. 2. IF YOU SET THIS TO APPLY, ALL TERRAFORM RESOURCES WILL BE CREATED.'
+        required: false
+        type: choice
+        options: ['apply', 'destroy']
+      DEPLOY:
+        description: 'Should the compiled code be pushed as a docker container and deployed via terraform.'
+        required: true
+        default: true
+        type: boolean
+
+jobs:
+  call-deploy-core:
+    uses: ./.github/workflows/deploy-core.yml
+    with:
+      ENVIRONMENT: stg
