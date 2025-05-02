@@ -1,11 +1,8 @@
-name: Deploy to Production
+name: Deploy to Stage
 
 concurrency:
-  group: ci-cd-${{ github.workflow }}-Production
+  group: ci-cd-${{ github.workflow }}-Stage
   cancel-in-progress: true
-
-environment: 
-  name: Production
 
 on:
   push:
@@ -27,4 +24,5 @@ jobs:
   call-deploy-core:
     uses: ./.github/workflows/deploy-core.yml
     with:
-      ENVIRONMENT: prod
+      ENVIRONMENT: stg
+      ENV_FULL : Stage

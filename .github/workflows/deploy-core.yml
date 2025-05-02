@@ -1,0 +1,38 @@
+name: Deploy Core
+
+on:
+  workflow_call:
+    inputs:
+      ENVIRONMENT:
+        required: true
+        type: string
+        default: "dev"
+      ENV_FULL:
+        required: true
+        type: string
+
+jobs:
+  approval:
+    runs-on: [self-hosted, Standard]
+    environment: ${{ inputs.ENV_FULL }}
+    steps:
+      - name: Print STUB
+        run: |
+          echo "THIS IS STUB:${{ inputs.ENVIRONMENT }}"
+
+  scheduler-service:
+    needs: approval
+    runs-on: [self-hosted, Standard]
+    steps:
+      - name: Print STUB
+        run: |
+          echo "THIS IS STUB SCS:${{ inputs.ENVIRONMENT }}"
+
+  Toeken-service:
+    needs: approval
+    runs-on: [self-hosted, Standard]
+    steps:
+      - name: Print STUB
+        run: |
+          echo "THIS IS STUB TOKEN:${{ inputs.ENVIRONMENT }}"
+  

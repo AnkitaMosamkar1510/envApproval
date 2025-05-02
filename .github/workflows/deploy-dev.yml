@@ -4,9 +4,6 @@ concurrency:
   group: ci-cd-${{ github.workflow }}-Development
   cancel-in-progress: true
 
-environment: 
-  name: Development
-
 on:
   push:
     branches: [main]
@@ -28,3 +25,4 @@ jobs:
     uses: ./.github/workflows/deploy-core.yml
     with:
       ENVIRONMENT: dev
+      ENV_FULL : Development
