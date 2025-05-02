@@ -13,7 +13,7 @@ on:
 
 jobs:
   approval:
-    runs-on: [self-hosted, Standard]
+    runs-on: ubuntu-latest
     environment: ${{ inputs.ENV_FULL }}
     steps:
       - name: Print STUB
@@ -22,7 +22,7 @@ jobs:
 
   scheduler-service:
     needs: approval
-    runs-on: [self-hosted, Standard]
+    runs-on: ubuntu-latest
     steps:
       - name: Print STUB
         run: |
@@ -30,7 +30,7 @@ jobs:
 
   Toeken-service:
     needs: approval
-    runs-on: [self-hosted, Standard]
+    runs-on: ubuntu-latest
     steps:
       - name: Print STUB
         run: |
